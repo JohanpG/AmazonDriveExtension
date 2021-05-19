@@ -18,6 +18,11 @@ $(function() {
             $('.VideoTooLargeError .options .button, .VideoTooLongError .options .button').click();
 
             var videoUrl = $('.ext-video:not(.prev-node, .next-node, .preloaded-node) .preload-image img').attr('src');
+            // When on amazon photos
+            if(videoUrl == null)
+            {
+                videoUrl = $('.video-preview:not(.video-node, .next-node, .preloaded-node) .preload-image img').attr('src');
+            }
             videoUrl = videoUrl.split('?')[0]; //clean url
             injectVideo(videoUrl);
         }
